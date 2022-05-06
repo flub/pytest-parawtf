@@ -1,0 +1,25 @@
+=========
+Changelog
+=========
+
+
+1.0.2
+=====
+
+- Actually stop using setup.py.
+- Move to src/ layout, even for a single-module package.
+- Include the tests in the sdist.
+
+
+1.0.1
+=====
+
+- Fix REAME formatting and typos.
+- Include the LICENSE file in the .tar.gz and .whl.
+- Add pyproject.toml and move more things to setup.cfg.
+
+
+1.0.0
+=====
+
+Initial release.

@@ -1,0 +1,41 @@
+==============
+pytest-parawtf
+==============
+
+Ever wondered how pytest_ decides to spell parametrise?  Was it
+parameterize?  Parametrise?  Parametrize?
+
+Confused yet?  Stop worrying, install this plugin and all variants are
+valid::
+
+   @pytest.mark.parametrize('a', [0, 1])
+   @pytest.mark.parameterize('b', [2, 3])
+   @pytest.mark.parametrise('c', [4, 5])
+   @pytest.mark.parameterise('d', [6, 7])
+   def test_wtf(a, b, c, d):
+       assert a in [0, 1]
+       assert b in [2, 3]
+       assert c in [4, 5]
+       assert d in [6, 7]
+
+But if you've ever parametrised a fixture, you may wonder why it's yet
+another spelling over there: ``@pytest.fixture(params=[0, 1])``.  Fear
+not, you can now be consistent::
+
+   @pytest.mark.params('a', [0, 1])
+   def test_simple(a):
+       assert a in [0, 1]
+
+What about when you implement the ``pytest_generate_tests`` hook in
+your ``conftest.py`` file?  We got you covered, ``metafunc.params()``
+and the other (in)sane variations are now valid too.
+
+
+Monkey see, monkey do
+=====================
+
+This plugin monkeypatches the core pytest in ways which should never
+be done.  In other words it voids all your warranties.  Use at your
+own risk.
+
+.. _pytest: https://pytest.org
